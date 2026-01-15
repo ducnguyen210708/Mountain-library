@@ -1,3 +1,35 @@
+function getColumn(url, columnNumber){
+  var column = [];
+  var table = [];
+  var request = new XMLHttpRequest();  
+  request.open("GET", url, false);   
+  request.send(null);  
+  var csvData = new Array();
+  var jsonObject = request.responseText.split(/\r?\n|\r/);
+  for (var i = 0; i < jsonObject.length; i++) {
+    csvData.push(jsonObject[i].split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/));
+  }
+  table = csvData;
+  column = getCol(table, columnNumber);
+  return column;
+}
+
+//returns the specified column from a 2D Array
+function getCol(matrix, col){
+       var column = [];
+       for(var i=1; i<matrix.length-1; i++){
+          column.push(matrix[i][col]);
+       }
+       return column;
+    }
+  
+
+var url = "https://raw.githubusercontent.com/b-mcavoy/datasets/refs/heads/main/Geography/World's%20Tallest%20Mountains.csv"
+var mountainName = getColumn(url, 2)
+var heightInFeet = getColumn(url, 4)
+var mountainRange = getColumn(url, 6)
+var country = getColumn(url, 11)
+
 //1
 /* 
 returns mountains in the chosen country
@@ -17,7 +49,6 @@ function getMountainsInCountry(chosenCountry){
     return matches;
 }
 
-console.log(getMountainsInCountry("nepal"));
 
 //2
 /*returns mountains in the chosen mountain range
@@ -37,7 +68,7 @@ function getMountainsInRange(chosenRange){
     return matches;
 }
 
-console.log(getMountainsInRange("jugal himalaya"));
+
 
 
 //3
@@ -54,7 +85,7 @@ function getMountainsHeight(mountain){
   }
  return 0  
 }
-console.log(getMountainsHeight(" K5"))
+
 
 
 //4
@@ -74,7 +105,7 @@ for(var i=0; i<mountainName.length; i++){
 }
 return lowest
 }
-console.log(lowestMountain())
+
 
 
 
@@ -96,4 +127,4 @@ for (var i=0; i<country.length; i++){
 return (averageHeight/total) + " feet"
 }
 
-console.log(getAverageMountainHeight("China"))
+
