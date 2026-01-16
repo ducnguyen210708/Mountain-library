@@ -1,4 +1,4 @@
-# Himalayan Mountain Library
+# World Mountain Library
  #
 
 ##### Returns mountains in the chosen country in the Himalayas
