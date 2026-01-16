@@ -62,10 +62,11 @@ function getMountainsInRange(chosenRange){
     for(var i = 0; i < mountainRange.length; i++){
         if(mountainRange[i].toLowerCase().includes(chosenRange.toLowerCase())){
             matches.push(mountainName[i]);
+            return matches
         }
     }
 
-    return matches;
+ return 0
 }
 
 
