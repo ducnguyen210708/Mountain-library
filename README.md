@@ -3,7 +3,7 @@
 
 ##### Returns mountains in the chosen country in the Himalayas
 ###### chosenCountry {string} - the name of the country to search for
-###### return {list} - list of mountain names in that country
+###### return {list} - list of mountain names in that country or "No matches found" if there are no mountains
 **`function getMountainsInCountry(chosenCountry)`**
 #
 
@@ -16,7 +16,7 @@
 
 ##### Returns the height of the chosen mountain in feet in the Himalayas
  ###### mountain {string} - the desired mountain
- ###### return {string} - the height of the mountain in feet or "No value found" if there is not mountain height
+ ###### return {string} - the height of the mountain in feet or "No value found" if there is not a mountain height
  **`function getMountainsHeight(mountain)`**
 #
 
